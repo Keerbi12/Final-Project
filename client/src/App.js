@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './components/Button'
+import Button from './components/Button.style'
 import styled from 'styled-components'
 const Buttonstyled = styled.button`
   background: transparent;
@@ -28,7 +28,10 @@ const Buttonstyled = styled.button`
 
 function App() {
   return (
-    <Buttonstyled>CSS-IN-JS</Buttonstyled>
+    <div>
+      <Button />
+      <Buttonstyled>CSS-IN-JS</Buttonstyled>
+    </div>
   );
 }
 
