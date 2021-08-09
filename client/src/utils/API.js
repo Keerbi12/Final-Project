@@ -8,9 +8,13 @@ export const getMe = (token) => {
   });
 };
 
-export const getMemory = (token) => {
+export const createMemory = (postData) => {
   return fetch('/api/memories', {
-    
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
   });
 };
 

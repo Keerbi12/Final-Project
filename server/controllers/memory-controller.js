@@ -1,15 +1,26 @@
-const Memory = require('../models/Memory.js')
+// Import the Memory model
+const { Memory } = require('../models');
 
 module.exports = {
-    async createMemory(req, res) {
-        const post = req.body;
-        const newPost = new PostMessage(post)
-        try {
-            await newPost.save();
-            res.status(201).json(newPost);
-        } catch (error) {
-            res.status(409),json({ message: error.message })
+    // Create a new memory
+    // async createMemory(req, res) {
+    //     const post = req.body;
+    //     const newPost = new PostMessage(post)
+    //     try {
+    //         await newPost.save();
+    //         res.status(201).json(newPost);
+    //     } catch (error) {
+    //         res.status(409),json({ message: error.message })
+    //     }
+    // },
+
+    async createMemory({ body }, res) {
+        const memory = await Memory.create(body);
+
+        if (!memory) {
+            return res.status(400).json({ message: 'Something is wrong!' });
         }
+        res.json({ memory });
     },
 
     async getMemory(req, res) {
@@ -21,5 +32,5 @@ module.exports = {
         } catch (error) {
             res.status(404).json({message: error.message});
         }
-    }   
+    },  
 };
