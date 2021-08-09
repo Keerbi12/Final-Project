@@ -5,7 +5,7 @@ const {
 } = require('../../controllers/memory-controller.js')
 
 // localhost:3001/api/memories/
-router.route('/', getMemory);
-router.get('/posts', createMemory);
+router.get('/', createMemory);
+router.get('/posts', getMemory);
 
 module.exports = router;

@@ -6,6 +6,7 @@ import { Cucumber } from './components/Buttonstyled.style'
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
+import Form from './components/Form'
 
 const Tomatobtn = styled(Buttonstyled)`
   background-color: tomato;
@@ -29,6 +30,7 @@ function App() {
     <Router>
       <>
         <Navbar />
+        <Form />
         <Switch>
           <Route exact path='/' component={SearchBooks} />
           <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
