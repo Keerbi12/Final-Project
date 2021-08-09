@@ -6,9 +6,13 @@ export const Buttonstyled = styled.button`
   color: palevioletred;
   margin: 0 1em;
   padding: 0.25em 1em;
+  &:hover {
+    color: red;
+    }
 `;
 
-export const Cucumber = styled(Buttonstyled)`
+export const Btncucumber = styled(Buttonstyled)`
   background-color: greenyellow;
   color: white;
+  text-decoration: none;
 `;

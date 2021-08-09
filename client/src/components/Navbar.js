@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import Form from './Form';
+import MemoryForm from './MemoryForm';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
+import { Buttonstyled } from './Buttonstyled.style';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-  const [showModal2, setShowModal2] = useState(true);
+  const [showModal2, setShowModal2] = useState(false);
 
   return (
     <>
@@ -22,22 +23,18 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-                Create a new gaming memory
-              </Nav.Link>
-              <Nav.Link as={Link} to='/'>
-                Search for gaming memories
-              </Nav.Link>
+              <Buttonstyled as={Link} to='/' >Search</Buttonstyled>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Gaming Memories
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Buttonstyled onClick={() => setShowModal2(true)}>New memory</Buttonstyled>
+                  <Buttonstyled as={Link} to='/saved'>
+                    See your gaming memories
+                  </Buttonstyled>
+                  <Buttonstyled onClick={Auth.logout}>Logout</Buttonstyled>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Buttonstyled onClick={() => setShowModal(true)}>Login/Sign Up</Buttonstyled>
               )}
             </Nav>
           </Navbar.Collapse>
@@ -85,7 +82,7 @@ const AppNavbar = () => {
             <Modal.Title>Create a new gaming memory!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form/>
+            <MemoryForm/>
           </Modal.Body>
       </Modal>
     </>

@@ -8,6 +8,12 @@ export const getMe = (token) => {
   });
 };
 
+export const getMemory = (token) => {
+  return fetch('/api/memories', {
+    
+  });
+};
+
 export const createUser = (userData) => {
   return fetch('/api/users', {
     method: 'POST',

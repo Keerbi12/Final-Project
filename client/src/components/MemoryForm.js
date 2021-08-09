@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Form, Group, Label, Control, Modal } from 'react-bootstrap';
-import styled from 'styled-components';
+import { Container, Form } from 'react-bootstrap';
 import { Buttonstyled } from './Buttonstyled.style';
 
 const Forminput = () => {
@@ -19,6 +18,7 @@ const Forminput = () => {
                 <Form.Label>Memory Description</Form.Label>
                 <Form.Control as="textarea" rows={3} placeholder="Your description"/>
             </Form.Group>
+            <Buttonstyled>Submit</Buttonstyled>
         </Container>
     )
 }
