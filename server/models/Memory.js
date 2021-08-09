@@ -1,30 +1,16 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const bookSchema = new Schema({
-  authors: [
-    {
-      type: String,
-    },
-  ],
-  description: {
-    type: String,
-    required: true,
-  },
-  // saved book id from GoogleBooks
-  bookId: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-  },
-  link: {
-    type: String,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
+const memorySchema = new Schema({
+  title: {type: String},
+  message: {type: String},
+  creator: {type: String},
+  selectedFile: {type: String},
+  createdAt: {
+    type: Date,
+    default: new Date()
+  }
 });
 
-module.exports = bookSchema;
+const Memory = model('Memory', memorySchema);
+
+module.exports = Memory;

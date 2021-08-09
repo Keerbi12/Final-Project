@@ -1,9 +1,11 @@
 const router = require('express').Router();
-// const { getMemories } = require('../../controllers/memory-controller')
+const { 
+    getMemory,
+    createMemory
+} = require('../../controllers/memory-controller.js')
 
-
-router.get('/', (req, res) => {
-    res.send('Success');
-});
+// localhost:3001/api/memories/
+router.route('/', getMemory);
+router.get('/posts', createMemory);
 
 module.exports = router;
