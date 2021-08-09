@@ -1,11 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components'
 import { Buttonstyled } from './components/Buttonstyled.style'
 import { Cucumber } from './components/Buttonstyled.style'
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import SearchBooks from './pages/SearchBooks';
-// import SavedBooks from './pages/SavedBooks';
-// import Navbar from './components/Navbar';
+import SearchBooks from './pages/SearchBooks';
+import SavedBooks from './pages/SavedBooks';
+import Navbar from './components/Navbar';
 
 const Tomatobtn = styled(Buttonstyled)`
   background-color: tomato;
@@ -13,15 +13,28 @@ const Tomatobtn = styled(Buttonstyled)`
   margin: 50px;
 `;
 
+/* <div className='App'>
+<Navbar bg='dark' variant='dark' expand='lg'  >
+  Hello there
+</Navbar>
+</div>
+<Buttonstyled>Styled Component</Buttonstyled>
+<Buttonstyled>Styled Component</Buttonstyled>
+<Buttonstyled>Styled Component</Buttonstyled>
+<Tomatobtn>Styled Tomato</Tomatobtn>
+<Cucumber>Styled Cucumber</Cucumber> */
+
 function App() {
   return (
-    <div>
-      <Buttonstyled>Styled Component</Buttonstyled>
-      <Buttonstyled>Styled Component</Buttonstyled>
-      <Buttonstyled>Styled Component</Buttonstyled>
-      <Tomatobtn>Styled Tomato</Tomatobtn>
-      <Cucumber>Styled Cucumber</Cucumber>
-    </div>
+    <Router>
+      <>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={SearchBooks} />
+          <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
+        </Switch>
+      </>
+    </Router>
   );
 }
 
