@@ -8,11 +8,26 @@ import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 import Form from './components/Form'
 
-const Tomatobtn = styled(Buttonstyled)`
-  background-color: tomato;
-  color: white;
-  margin: 50px;
-`;
+function App() {
+  return (
+    <Router>
+      <>
+        <Navbar />
+        <Switch>
+          {/*<Route exact path='/' component={SearchBooks} />*/}
+          <Route exact path='/' />
+          <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
+        </Switch>
+      </>
+    </Router>
+  );
+}
+
+//   const Tomatobtn = styled(Buttonstyled)`
+//   background-color: tomato;
+//   color: white;
+//   margin: 50px;
+// `;
 
 /* <div className='App'>
 <Navbar bg='dark' variant='dark' expand='lg'  >
@@ -24,20 +39,5 @@ const Tomatobtn = styled(Buttonstyled)`
 <Buttonstyled>Styled Component</Buttonstyled>
 <Tomatobtn>Styled Tomato</Tomatobtn>
 <Cucumber>Styled Cucumber</Cucumber> */
-
-function App() {
-  return (
-    <Router>
-      <>
-        <Navbar />
-        <Form />
-        <Switch>
-          <Route exact path='/' component={SearchBooks} />
-          <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
-        </Switch>
-      </>
-    </Router>
-  );
-}
 
 export default App;

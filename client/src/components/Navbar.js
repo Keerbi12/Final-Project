@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import Form from './Form';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
@@ -9,19 +10,23 @@ import Auth from '../utils/auth';
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(true);
 
   return (
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Game
+            Game Chat
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/'>
-                Search For Gaming Memories
+                Create a new gaming memory
+              </Nav.Link>
+              <Nav.Link as={Link} to='/'>
+                Search for gaming memories
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
@@ -69,6 +74,19 @@ const AppNavbar = () => {
             </Tab.Content>
           </Modal.Body>
         </Tab.Container>
+      </Modal>
+      {/*Second Modal */}
+      <Modal
+        size='lg'
+        show={showModal2}
+        onHide={() => setShowModal2(false)}
+        aria-labelledby='signup-modal'>
+          <Modal.Header closeButton>
+            <Modal.Title>Create a new gaming memory!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form/>
+          </Modal.Body>
       </Modal>
     </>
   );
