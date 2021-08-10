@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Alert, Button } from 'react-bootstrap';
 
-import { createMemory } from '../utils/API'
+// import { createMemory } from '../utils/API'
 import Auth from '../utils/auth';
+
+const createMemory = () => {
+    console.log("Hi");
+}
 
 const MemoryForm = () => {
     // Set the initial form state

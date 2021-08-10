@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import MemoryForm from './MemoryForm';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
@@ -18,12 +17,14 @@ const AppNavbar = () => {
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Game Chat
+            Game
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Buttonstyled as={Link} to='/' >Search</Buttonstyled>
+              <Nav.Link as={Link} to='/'>
+                Search For Gaming Memories
+              </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
@@ -71,19 +72,6 @@ const AppNavbar = () => {
             </Tab.Content>
           </Modal.Body>
         </Tab.Container>
-      </Modal>
-      {/*Second Modal */}
-      <Modal
-        size='lg'
-        show={showModal2}
-        onHide={() => setShowModal2(false)}
-        aria-labelledby='signup-modal'>
-          <Modal.Header closeButton>
-            <Modal.Title>Create a new gaming memory!</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <MemoryForm/>
-          </Modal.Body>
       </Modal>
     </>
   );
