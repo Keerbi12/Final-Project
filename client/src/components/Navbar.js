@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import Form from './Form';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
-import { Buttonstyled } from './Buttonstyled.style';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-  const [showModal2, setShowModal2] = useState(false);
+  const [showModal2, setShowModal2] = useState(true);
 
   return (
     <>
@@ -23,19 +23,21 @@ const AppNavbar = () => {
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/'>
-                Search For Gaming Memories
+                Create a new gaming memory
+              </Nav.Link>
+              <Nav.Link as={Link} to='/'>
+                Search for gaming memories
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Buttonstyled onClick={() => setShowModal2(true)}>New memory</Buttonstyled>
-                  <Buttonstyled as={Link} to='/saved'>
-                    See your gaming memories
-                  </Buttonstyled>
-                  <Buttonstyled onClick={Auth.logout}>Logout</Buttonstyled>
+                  <Nav.Link as={Link} to='/saved'>
+                    See Your Gaming Memories
+                  </Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Buttonstyled onClick={() => setShowModal(true)}>Login/Sign Up</Buttonstyled>
+                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
@@ -72,6 +74,19 @@ const AppNavbar = () => {
             </Tab.Content>
           </Modal.Body>
         </Tab.Container>
+      </Modal>
+      {/*Second Modal */}
+      <Modal
+        size='lg'
+        show={showModal2}
+        onHide={() => setShowModal2(false)}
+        aria-labelledby='signup-modal'>
+          <Modal.Header closeButton>
+            <Modal.Title>Create a new gaming memory!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form/>
+          </Modal.Body>
       </Modal>
     </>
   );
