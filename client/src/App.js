@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import { Buttonstyled } from './components/Buttonstyled.style'
 // import { Btncucumber } from './components/Buttonstyled.style'
-// import SearchBooks from './pages/SearchBooks';
 import SavedMemories from './pages/SavedMemories';
 import Navbar from './components/Navbar';
 

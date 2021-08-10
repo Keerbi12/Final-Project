@@ -7,7 +7,7 @@ export const getMe = (token) => {
     },
   });
 };
-
+// route to create new memory 
 export const createMemory = (postData) => {
   return fetch('/api/memories', {
     method: 'POST',

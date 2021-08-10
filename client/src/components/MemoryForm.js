@@ -6,7 +6,7 @@ import Auth from '../utils/auth';
 
 const MemoryForm = () => {
     // Set the initial form state
-    const [postFormData, setPostFormData] = useState({title:'', selectedFile:'', description:''});
+    const [postFormData, setPostFormData] = useState({postTitle:'', selectedFile:'', postDescription:''});
     // Set the state for form validation
     const [validated] = useState(false);
     // Set the state for alert
@@ -63,9 +63,9 @@ const MemoryForm = () => {
                     <Form.Control 
                         type="text" 
                         placeholder="Your title"
-                        name='title'
+                        name='postTitle'
                         onChange={handleInputChange}
-                        value={postFormData.title}
+                        value={postFormData.postTitle}
                         required/>
                 </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
@@ -83,13 +83,13 @@ const MemoryForm = () => {
                         as="textarea" 
                         rows={3} 
                         placeholder="Your description"
-                        name='description'
+                        name='postDescription'
                         onChange={handleInputChange}
-                        value={postFormData.description}
+                        value={postFormData.postDescription}
                         required/>
                 </Form.Group>
                 <Button
-                    disabled={!(postFormData.title && postFormData.description)}
+                    disabled={!(postFormData.postTitle && postFormData.postDescription)}
                     type='submit'
                     variant='success'>
                     Submit
