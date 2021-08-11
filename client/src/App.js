@@ -5,6 +5,7 @@ import { Buttonstyled } from './components/Buttonstyled.style'
 import { Cucumber } from './components/Buttonstyled.style'
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
+// import SavedMemories from './pages/SavedMemories';
 import Navbar from './components/Navbar';
 import Form from './components/Form'
 
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           {/*<Route exact path='/' component={SearchBooks} />*/}
           <Route exact path='/' />
+          {/* <Route exact path='/saved' component={SavedMemories} /> */}
           <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
         </Switch>
       </>
