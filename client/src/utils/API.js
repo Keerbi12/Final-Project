@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
   return fetch('/api/users/me', {
@@ -17,7 +19,19 @@ export const createUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
-
+// get a memory
+export const getMemoryPost = () => {
+  axios.getMe('/api/memories/get')
+    .then((response) => {
+      const data = response.data;
+      this.setState({ posts: data});
+      console.log('Data recieved');
+    })
+    .catch(() => {
+      console.log('Data not recieved')
+    });
+};
+// create Memory, sending inputs to mongodb via memory routes
 export const createMemory = (postData) => {
   return fetch('/api/memories/new', {
     method: 'POST',
