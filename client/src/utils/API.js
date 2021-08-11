@@ -18,6 +18,16 @@ export const createUser = (userData) => {
   });
 };
 
+export const createMemory = (postData) => {
+  return fetch('/api/memories', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+};
+
 export const loginUser = (userData) => {
   return fetch('/api/users/login', {
     method: 'POST',

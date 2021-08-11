@@ -1,13 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import styled from 'styled-components'
-import { Buttonstyled } from './components/Buttonstyled.style'
-import { Cucumber } from './components/Buttonstyled.style'
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-// import SavedMemories from './pages/SavedMemories';
+// import SearchBooks from './pages/SearchBooks';
+// import SavedBooks from './pages/SavedBooks';
+import SavedMemories from './pages/SavedMemories';
 import Navbar from './components/Navbar';
-import Form from './components/Form'
 
 function App() {
   return (
@@ -17,7 +13,7 @@ function App() {
         <Switch>
           {/*<Route exact path='/' component={SearchBooks} />*/}
           <Route exact path='/' />
-          {/* <Route exact path='/saved' component={SavedMemories} /> */}
+          <Route exact path='/saved' component={SavedMemories} />
           <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
         </Switch>
       </>
