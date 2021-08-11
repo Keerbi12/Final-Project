@@ -1,7 +1,10 @@
 import React from 'react'
 import { CardColumns, Card, Button } from 'react-bootstrap';
 
+
+
 export const MemoryCard = () => {
+
     return (
         <CardColumns>
             <Card border='dark'>

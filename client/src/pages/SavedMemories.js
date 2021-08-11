@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Row, Col } from 'react-bootstrap';
+import { Jumbotron, Container, Row, Col, Card, CardColumns, Button } from 'react-bootstrap';
 import { getMe } from '../utils/API';
-// import { deleteBook } from '../utils/API';
 import { MemoryCard } from '../components/MemoryCard';
-// import { getMemory } from '../utils/API';
 import Auth from '../utils/auth';
-// import { removeBookId } from '../utils/localStorage';
 
 const SavedMemories = () => {
 
     // useState returns state and update function */
-    const [userData, setUserData] = useState({"test": 1});
+    const [userData, setUserData] = useState({1:"1"});
 
     // use this to determine if `useEffect()` hook needs to run again
     const userDataLength = Object.keys(userData).length;
@@ -41,30 +38,6 @@ const SavedMemories = () => {
         getUserData();
     }, [userDataLength]);
 
-    // create function that accepts the book's mongo _id value as param and deletes the book from the database
-    // const handleDeleteBook = async (bookId) => {
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    //     if (!token) {
-    //     return false;
-    //     }
-
-    //     try {
-    //     const response = await deleteBook(bookId, token);
-
-    //     if (!response.ok) {
-    //         throw new Error('something went wrong!');
-    //     }
-
-    //     const updatedUser = await response.json();
-    //     setUserData(updatedUser);
-    //     // upon success, remove book's id from localStorage
-    //     removeBookId(bookId);
-    //     } catch (err) {
-    //     console.error(err);
-    //     }
-    // };
-
     // if data isn't here yet, say so
     if (!userDataLength) {
         return <h2>LOADING...</h2>;
@@ -75,7 +48,7 @@ const SavedMemories = () => {
             {/* Jumbotron showcasing the memories page */}
             <Jumbotron fluid className='text-light bg-dark'>
                 <Container>
-                <h1>Viewing saved books!</h1>
+                <h1>Viewing saved memories!</h1>
                 </Container>
             </Jumbotron>
 
@@ -84,7 +57,19 @@ const SavedMemories = () => {
             <h2>
             Memories
             </h2>
-
+            <CardColumns>
+                <Card border='dark'>
+                    <Card.Img src="../../../public/logo192.png" alt={`A gaming memory for`} variant='top' />
+                    <Card.Body>
+                        <Card.Title>Title</Card.Title>
+                        <p className='small'>User</p>
+                        <Card.Text>Description</Card.Text>
+                        <Button className='btn-block btn-danger'>
+                            Delete Memory
+                        </Button>
+                    </Card.Body>
+                </Card>
+            </CardColumns>
             {/* Card columns for Memories */}
             <Row>
                 <Col md="auto"><MemoryCard /></Col>
@@ -98,4 +83,3 @@ const SavedMemories = () => {
 };
   
 export default SavedMemories;
-
