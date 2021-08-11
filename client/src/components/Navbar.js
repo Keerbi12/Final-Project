@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Buttonstyled } from './Buttonstyled.style';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import MemoryForm from './MemoryForm';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+import MemoryForm from './MemoryForm';
 
 import Auth from '../utils/auth';
-import { Buttonstyled } from './Buttonstyled.style';
 
 const AppNavbar = () => {
   // set modal display state
