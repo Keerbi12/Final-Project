@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Row, Col, Card, CardColumns, Button } from 'react-bootstrap';
+import { Jumbotron, Container, CardColumns, Card, Button, Row, Col, } from 'react-bootstrap';
+
 import { getMe } from '../utils/API';
-import { MemoryCard } from '../components/MemoryCard';
+// import { MemoryCard } from '../components/MemoryCard';
 import Auth from '../utils/auth';
 
 const SavedMemories = () => {
@@ -72,10 +73,10 @@ const SavedMemories = () => {
             </CardColumns>
             {/* Card columns for Memories */}
             <Row>
+                {/* <Col md="auto"><MemoryCard /></Col>
                 <Col md="auto"><MemoryCard /></Col>
-                <Col md="auto"><MemoryCard /></Col>
-                <Col md="auto"><MemoryCard /></Col>
-                <Col md="auto"><MemoryCard /></Col>
+                <Col md="auto"><MemoryCard /></Col> */}
+                <Col md="auto"></Col>
             </Row>
         </Container>
       </>
