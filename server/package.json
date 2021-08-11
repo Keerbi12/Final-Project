@@ -8,7 +8,7 @@
     "watch": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Keerbi Liu",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^4.0.1",
