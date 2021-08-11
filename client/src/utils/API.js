@@ -19,7 +19,7 @@ export const createUser = (userData) => {
 };
 
 export const createMemory = (postData) => {
-  return fetch('/api/memories', {
+  return fetch('/api/memories/new', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

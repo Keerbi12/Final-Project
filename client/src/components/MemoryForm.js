@@ -53,8 +53,9 @@ const Forminput = () => {
             
                 {/* show alert if server response is bad */}
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                    Something went wrong with your signup!
+                    Something went wrong with your memory creation!
                 </Alert>
+                
                 {/* The title of the memory modal, required field */}
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Memory Title</Form.Label>
